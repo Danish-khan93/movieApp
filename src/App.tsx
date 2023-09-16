@@ -46,7 +46,9 @@ const App = () => {
             } flex justify-evenly`}
           >
             <MovieList fun={getId} />
-            <MovieDetails  data={singalMovie}/>
+            <MovieDetails 
+            // @ts-ignore
+            data={singalMovie}/>
           </Stack>
         </movieContext.Provider>
       </themeContext.Provider>
