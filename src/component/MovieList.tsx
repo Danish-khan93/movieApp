@@ -59,7 +59,7 @@ const MovieList = ({ fun }: { fun: (id: string) => void }) => {
               <Divider
                 key={index}
                 orientation="horizontal"
-                className="bg-white"
+                className="bg-white mb-1"
                 flexItem
               />
             </Box>
