@@ -26,10 +26,12 @@ const App = () => {
   const dark = {
     header: "bg-[#2C2C2B] text-[#F5F5F5]",
     background: "bg-black",
+    text: "text-white"
   };
   const light = {
     header: "text-[#2C2C2B] bg-[#F5F5F5]",
     background: "bg-white",
+text: "text-black"
   };
   //  context
   return (
