@@ -6,7 +6,6 @@ const Toggel = () => {
   //@ts-ignore
   const { setToggle, toggle, dark, light } = useContext(themeContext);
   const themeToggel = () => {
-    console.log("helllo theme");
     setToggle(!toggle);
   };
   return (

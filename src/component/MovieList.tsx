@@ -4,6 +4,7 @@ import { movieContext } from "../context/movieContext";
 import { fetchData } from "../fetch/fetchData";
 import NotFound from "./NotFound";
 import { themeContext } from "../context/themeContext";
+import { hiddenContext } from "../context/hiddenContext";
 // import { useState } from "react";
 
 type FETCHDATA = {
@@ -18,13 +19,15 @@ const MovieList = ({ fun }: { fun: (id: string) => void }) => {
   //@ts-ignore
   const { movieName } = useContext(movieContext);
   //@ts-ignore
+  const { setHidden } = useContext(hiddenContext);
+  //@ts-ignore
   const { toggle, dark, light } = useContext(themeContext);
 
   const dataMovie = fetchData(movieName);
 
   const clickhandle = (value: string) => {
-    console.log(value);
     fun(value);
+    setHidden(true);
   };
 
   return (

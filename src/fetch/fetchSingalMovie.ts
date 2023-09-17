@@ -12,7 +12,7 @@ export type FETCHSINGALDATA = {
   Runtime: string;
   Released: string;
   Genre: string;
-  imdbRating:string;
+  imdbRating: string;
 };
 
 export const fetchSingalMoive = async (id: string) => {
@@ -21,6 +21,5 @@ export const fetchSingalMoive = async (id: string) => {
 
   const data = await axios.get(url);
   const result = data.data;
-  console.log(result);
   return result;
 };

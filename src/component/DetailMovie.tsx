@@ -1,21 +1,36 @@
-import { Typography, Box, Button ,IconButton } from "@mui/material";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Typography, Box, Button, IconButton } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import StarIcon from "@mui/icons-material/Star";
 import { FETCHSINGALDATA } from "../fetch/fetchSingalMovie";
-// import { getItem } from "../localStorage/loacalStorage";
-
-const DetailMovie = ({ data ,localDataValue }: { data: FETCHSINGALDATA,localDataValue:()=>  void }) => {
+import { useContext } from "react";
+import { hiddenContext } from "../context/hiddenContext";
+const DetailMovie = ({
+  data,
+  localDataValue,
+}: {
+  data: FETCHSINGALDATA;
+  localDataValue: () => void;
+}) => {
   const clickHandler = () => {
-    localDataValue()
+    localDataValue();
   };
+  //
+  //@ts-ignore
+  const { hidden, setHidden } = useContext(hiddenContext);
+  //
 
   return (
-    // className={hidden? "hidden":""}
-<Box >
-        <Box>
-            <IconButton onClick={()=>{}}><ArrowBackIcon className="text-white"/></IconButton>
-        </Box>
-      <Box className="flex justify-around items-center m-3 rounded-md ">
+    <Box className={hidden ? "" : "hidden"}>
+      <Box>
+        <IconButton
+          onClick={() => {
+            setHidden(false);
+          }}
+        >
+          <ArrowBackIcon className="text-white" />
+        </IconButton>
+      </Box>
+      <Box className="flex justify-around shadow-md p-2 items-center m-3 rounded-md ">
         <Typography
           component={"img"}
           src={data.Poster}
