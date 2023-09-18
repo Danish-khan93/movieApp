@@ -13,6 +13,7 @@ const DetailMovie = ({
   localDataValue: () => void;
 }) => {
   const clickHandler = () => {
+  
     localDataValue();
   };
   //
@@ -28,10 +29,10 @@ const DetailMovie = ({
         <IconButton
           onClick={() => {
             setHidden(false);
-            setToggle(!toggle);
+            
           }}
         >
-          <ArrowBackIcon className={`${toggle ? light.text : dark.text}`} />
+          <ArrowBackIcon  className="text-[#FFD700]"/>
         </IconButton>
       </Box>
       <Box className="flex justify-around shadow-md p-2 items-center m-3 rounded-md ">

@@ -7,3 +7,14 @@ export const getItem = () => {
     return [];
   }
 };
+
+// remove item 
+
+// export const removeItemList =(data)=>{
+// if( getItem().length >= 1){
+// const re = getItem().find((value)=>value.imdbId ===data.imdbId )
+
+// }
+
+// }
+

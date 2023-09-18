@@ -1,11 +1,23 @@
-import { Box, Typography } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Box, Typography, IconButton } from "@mui/material";
 import { FETCHSINGALDATA } from "../fetch/fetchSingalMovie";
 import StarIcon from "@mui/icons-material/Star";
 import { hiddenContext } from "../context/hiddenContext";
 import { useContext } from "react";
-const WatchMovie = ({ dataLocal }: { dataLocal: FETCHSINGALDATA[] }) => {
+
+const WatchMovie = ({
+  dataLocal,
+  dataLocalSet,
+}: {
+  dataLocal: FETCHSINGALDATA[];
+  dataLocalSet: any;
+}) => {
   //@ts-ignore
   const { hidden } = useContext(hiddenContext);
+
+  const deleteHandle = (id:string) => {
+    dataLocalSet(dataLocal.filter((value) => value.imdbID !== id));
+  };
 
   const watchList = dataLocal.map((value, index) => {
     return (
@@ -18,13 +30,15 @@ const WatchMovie = ({ dataLocal }: { dataLocal: FETCHSINGALDATA[] }) => {
           ></Typography>
         </Box>
         <Box className="flex justify-evenly gap-5">
-            
           <Typography>
             <StarIcon className="text-[#FFD700]" />
             {value.imdbRating}
           </Typography>
           <Typography>{value.Runtime}</Typography>
           <Typography>Watched</Typography>
+          <IconButton onClick={()=>deleteHandle(value.imdbID)}>
+            <DeleteIcon className="text-[#FFD700]" />
+          </IconButton>
         </Box>
       </Box>
     );
@@ -45,7 +59,6 @@ const WatchMovie = ({ dataLocal }: { dataLocal: FETCHSINGALDATA[] }) => {
         <Box className="flex justify-between p-3">
           <Typography>Total Moive {dataLocal.length}</Typography>
           <Typography>Total Watched Time {time}</Typography>
-          {/* <Typography>{dataLocal.length}</Typography> */}
         </Box>
       </Box>
       {watchList}
@@ -54,4 +67,3 @@ const WatchMovie = ({ dataLocal }: { dataLocal: FETCHSINGALDATA[] }) => {
 };
 
 export default WatchMovie;
-

@@ -5,6 +5,7 @@ import { fetchData } from "../fetch/fetchData";
 import NotFound from "./NotFound";
 import { themeContext } from "../context/themeContext";
 import { hiddenContext } from "../context/hiddenContext";
+
 // import { useState } from "react";
 
 type FETCHDATA = {
